@@ -2484,6 +2484,50 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
                 limitAdd(sender, limit)
                 }
                 break
+			case prefix+'memeindo':
+			case prefix+'meme':{
+	if (!isGroup)return textImg(mess.OnlyGrup)
+     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+     axios.get(`https://api-ramlan.herokuapp.com/api/random/memeindo?apikey=${apikey}`)
+     .then(({data}) => {
+     sendFileFromUrl(from, data.urlimage, 'Cringe', msg)
+     limitAdd(sender, limit)
+     })
+    }
+    break
+			case prefix+'tes':
+			case prefix+'bot':
+			textImg(`Bot sudah aktif boss, tinggal ketik ${prefix}menu aja`)
+			break
+			case 'makasih':
+			case 'makasi':
+			case 'terimakasih':
+			case 'thx':
+			case 'thanks':
+			textImg(`Sama sama kak ${pushname}😄`)
+			break
+			case prefix+'mintamaaf':
+			textImg(`Maafin bot kak ${pushname}\nAku janji ga akan ulang lagi, kalo aku ngulang aku janji lagi`)
+			break
+			case 'p':
+			textImg('P juga kak:)')
+			break
+			case 'assalamualaikum':
+			case `assalamu'alaikum`:
+			textImg('Waalaikumsalam wr.wrb')
+			break
+			case 'bot':
+			case 'bott':
+			textImg('Bot aktif kak, silahkan ketik *!menu* untuk melihat list menu.')
+			break
+			case 'halo':
+			case 'hallo':
+			case 'haloo':
+			textImg('Halo juga kak, Silahkan ketik *!menu* untuk memunculkan daftar command dalam bot ini')
+			break
+			case 'hai':
+			textImg('Hai juga kak, Silahkan ketik *!menu* untuk memunculkan daftar command dalam bot ini')
+			break
         }
     } catch (err) {
         console.log(color('[ERROR]', 'red'), err)
